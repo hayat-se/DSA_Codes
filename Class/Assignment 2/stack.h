@@ -1,0 +1,101 @@
+#include<iostream>
+using namespace std;
+
+template<class numberType>
+class Stack
+{
+    numberType* stackArray;
+    int top;
+    int max_size;
+
+    public:
+        Stack();
+        Stack(numberType);
+        bool isEmpty();
+        bool isFull();
+        void push(numberType);
+        void pop(numberType&);
+        numberType peak();
+};
+
+template<class numberType>
+Stack<numberType>::Stack()
+{
+    max_size = 100;
+    top = -1;
+    stackArray = new numberType[max_size];
+}
+
+template<class numberType>
+Stack<numberType>::Stack(numberType sz)
+{
+    max_size = sz;
+    top = -1;
+    stackArray = new numberType[max_size];
+}
+
+
+template<class numberType>
+bool Stack<numberType>::isEmpty()
+{
+    if(top == -1){
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+template<class numberType>
+bool Stack<numberType>::isFull()
+{
+    if(top == max_size-1)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
+template<class numberType>
+void Stack<numberType>::push(numberType newValue)
+{
+    if(isFull())
+    {
+        cout<<"Stack overflow\n";
+        return;
+    }
+    else
+    {
+        top++;
+        stackArray[top] = newValue;
+    }
+}
+
+template<class numberType>
+void Stack<numberType>::pop(numberType &value)
+{
+    if(isEmpty())
+    {
+        cout<<"Stack is Empty\n";
+        return;
+    }
+    else
+    {
+        value = stackArray[top];
+        top--;
+    }
+}
+
+template<class numberType>
+numberType Stack<numberType>::peak()
+{
+    if(!isEmpty())
+    {
+        return stackArray[top];
+    }
+}
+
+
