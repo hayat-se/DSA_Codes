@@ -12,6 +12,7 @@ struct Node
 class D_LinkedList
 {
     Node* head;
+    // hi baby
 public:
     D_LinkedList()
     {
