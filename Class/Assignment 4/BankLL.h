@@ -73,7 +73,9 @@ void LinkedList::addCustomer(string name, int cnic, double balance)
 
     NodePtr temp = head;
     while (temp->next != nullptr)
+    {
         temp = temp->next;
+    }
 
     temp->next = newNode;
     newNode->pre = temp;
